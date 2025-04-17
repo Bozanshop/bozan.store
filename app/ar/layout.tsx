@@ -1,16 +1,10 @@
-import { ReactNode } from "react";
-
 export default async function Layout({
   children,
-  params,
 }: {
-  children: ReactNode;
-  params: Promise<{ locale: string }>;
+  children: React.ReactNode;
 }) {
-  const resolvedParams = await params;
-
   return (
-    <html lang={resolvedParams.locale}>
+    <html lang="ar">
       <body>{children}</body>
     </html>
   );

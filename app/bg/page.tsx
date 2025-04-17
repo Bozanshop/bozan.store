@@ -1,3 +1,11 @@
-export default function Page() {
-  return <h1>Welcome to our global shop 🌍 (bg)</h1>;
+export default async function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="ar">
+      <body>{children}</body>
+    </html>
+  );
 }

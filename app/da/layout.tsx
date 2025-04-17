@@ -1,14 +1,10 @@
-import { ReactNode } from "react";
-
 export default async function Layout({
   children,
-  params,
 }: {
-  children: ReactNode;
-  params: { locale: string };
+  children: React.ReactNode;
 }) {
   return (
-    <html lang={params.locale}>
+    <html lang="ar">
       <body>{children}</body>
     </html>
   );
