@@ -1,31 +1,16 @@
-import { NextIntlClientProvider } from 'next-intl';
+import { ReactNode } from "react";
 
-export function generateStaticParams() {
-  return [{ locale: 'en' }];
-}
-
-export default async function LocaleLayout({
+export default async function Layout({
   children,
-  params: { locale },
+  params,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   params: { locale: string };
 }) {
-  let messages;
-
-  try {
-    messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch (error) {
-    messages = {};
-  }
-
   return (
-    <html lang={locale}>
-      <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
+    <html lang={params.locale}>
+      <body>{children}</body>
     </html>
   );
 }
+

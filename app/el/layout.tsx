@@ -1,9 +1,12 @@
-type LayoutProps = {
-  children: React.ReactNode;
-  params: { locale: string }; 
-};
+import { ReactNode } from "react";
 
-export default function Layout({ children, params }: LayoutProps) {
+export default async function Layout({
+  children,
+  params,
+}: {
+  children: ReactNode;
+  params: { locale: string };
+}) {
   return (
     <html lang={params.locale}>
       <body>{children}</body>
