@@ -5,10 +5,12 @@ export default async function Layout({
   params,
 }: {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const resolvedParams = await params;
+
   return (
-    <html lang={params.locale}>
+    <html lang={resolvedParams.locale}>
       <body>{children}</body>
     </html>
   );
