@@ -1,9 +1,13 @@
+'use client';
+
+import { useParams } from 'next/navigation';
 import { notFound } from 'next/navigation';
 
 const locales = ['en', 'fr', 'de', 'es', 'it', 'zh', 'ja', 'pl', 'ru', 'vi'];
 
-export default function HomePage({ params }: { params: { locale: string } }) {
-  const { locale } = params;
+export default function HomePage() {
+  const params = useParams();
+  const locale = typeof params?.locale === 'string' ? params.locale : '';
 
   if (!locales.includes(locale)) {
     notFound();
@@ -15,3 +19,4 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     </main>
   );
 }
+
