@@ -1,6 +1,15 @@
-const withNextIntl = require('next-intl/plugin')('./next-intl.config.ts');
-
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  i18n: {
+    locales: [
+      'en', 'de', 'fr', 'cs', 'it', 'bg', 'el', 'da', 'ar', 'es',
+      'fi', 'he', 'hi', 'hu', 'id', 'ja', 'ko', 'ms', 'nl', 'no',
+      'pl', 'pt', 'ro', 'ru', 'sv', 'th', 'tr', 'uk', 'vi', 'zh'
+    ],
+    defaultLocale: 'en',
+  },
+  reactStrictMode: true,
+};
 
-module.exports = withNextIntl(nextConfig);
+module.exports = nextConfig;
+
